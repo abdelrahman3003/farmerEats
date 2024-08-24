@@ -12,7 +12,6 @@ class _ApiService implements ApiService {
   _ApiService(
     this._dio, {
     this.baseUrl,
-
   }) {
     baseUrl ??= 'https://vcare.integration25.com/api/';
   }
@@ -20,7 +19,6 @@ class _ApiService implements ApiService {
   final Dio _dio;
 
   String? baseUrl;
-
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
