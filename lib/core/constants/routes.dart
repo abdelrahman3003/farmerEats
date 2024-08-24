@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+
+import '../../features/view/onboarding/onboarding_view.dart';
 class Routes {
   static const String konboardingView = '/onboardingView';
   static const String ksinginView = '/singinView';
@@ -7,8 +9,8 @@ class Routes {
   static const String kHomeView = '/homepage';
   static Route generateRoute(RouteSettings setting) {
     switch (setting.name) {
-      // case konboardingView:
-      //   return MaterialPageRoute(builder: (context) => const OnboardingView());
+      case konboardingView:
+        return MaterialPageRoute(builder: (context) => const OnboardingView());
       // case ksignupView:
       //   return MaterialPageRoute(
       //       builder: (context) => BlocProvider(
