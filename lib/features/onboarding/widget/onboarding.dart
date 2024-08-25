@@ -1,28 +1,39 @@
-import 'package:farmereats/core/theme/colors.dart';
-import 'package:farmereats/core/theme/styles.dart';
-import 'package:farmereats/core/theme/widget/app_button.dart';
-import 'package:farmereats/features/view/onboarding/widget/points.dart';
-import 'package:farmereats/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnboardingView extends StatelessWidget {
-  const OnboardingView({super.key});
+import '../../../core/theme/colors.dart';
+import '../../../core/theme/styles.dart';
+import '../../../core/theme/widget/app_button.dart';
+import 'points.dart';
+
+class Onboarding extends StatelessWidget {
+  const Onboarding({
+    super.key,
+    required this.backgroundImage,
+    required this.title,
+    required this.subTitle,
+    required this.index,
+    required this.color,
+    this.onPressed,
+  });
+  final String backgroundImage;
+  final String title;
+  final String subTitle;
+  final int index;
+  final Color color;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.green,
+      backgroundColor: color,
       body: SafeArea(
         child: Column(
           children: [
             Container(
               height: MediaQuery.of(context).size.height / 2,
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                Assets.images.qualityBackground.path,
-              ))),
+                  image: DecorationImage(image: AssetImage(backgroundImage))),
             ),
             Expanded(
               child: Container(
@@ -39,19 +50,23 @@ class OnboardingView extends StatelessWidget {
                     children: [
                       SizedBox(height: 30.h),
                       Text(
-                        "Quality",
+                        title,
                         style: Styles.font24black700w,
                       ),
                       SizedBox(height: 40.h),
                       Text(
-                        "Sell your farm fresh products directly to\n consumers, cutting out the middleman and\n reducing emissions of the global supply chain. ",
+                        subTitle,
                         style: Styles.font14black400w,
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 40.h),
-                      const Points(length: 3, selectedindex: 1),
+                       Points(length: 3, selectedindex: index),
                       SizedBox(height: 60.h),
-                      const AppButton(text: "Join the movement!"),
+                      AppButton(
+                        text: "Join the movement!",
+                        color: color,
+                        onPressed: onPressed,
+                      ),
                       SizedBox(height: 10.h),
                       Text(
                         "Login",

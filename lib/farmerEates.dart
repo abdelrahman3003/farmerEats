@@ -21,11 +21,11 @@ class Farmereates extends StatelessWidget {
               theme: ThemeData(
                 checkboxTheme: CheckboxThemeData(
                   side: BorderSide(
-                      color: AppColors.grey2, // Border color
+                      color: AppColors.black, // Border color
                       width: 2.w // Border width
                       ),
                 ),
-                primaryColor: AppColors.primary,
+                primaryColor: AppColors.black,
                 scaffoldBackgroundColor: AppColors.white,
               ),
               onGenerateRoute: Routes.generateRoute,
