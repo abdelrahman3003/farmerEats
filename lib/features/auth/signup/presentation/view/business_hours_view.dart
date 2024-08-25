@@ -1,19 +1,28 @@
 import 'package:farmereats/core/class/navigator.dart';
-import 'package:farmereats/core/theme/colors.dart';
-import 'package:farmereats/features/auth/signup/presentation/view/business_hours_view.dart';
-import 'package:farmereats/gen/assets.gen.dart';
+import 'package:farmereats/features/auth/signup/presentation/view/widget/day_calender.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/theme/widget/app_button.dart';
+import '../../../../../gen/assets.gen.dart';
+import 'widget/time_period.dart';
 
-class VerificationView extends StatelessWidget {
-  const VerificationView({super.key});
+class BusinessHoursView extends StatelessWidget {
+  const BusinessHoursView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> calenderDays = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+    List<String> timePeriods = [
+      '8:00am - 10:00am',
+      '10:00am - 1:00pm',
+      '1:00pm - 4:00pm',
+      '4:00pm - 7:00pm',
+      '7:00pm - 10:00pm'
+    ];
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -23,7 +32,7 @@ class VerificationView extends StatelessWidget {
             children: [
               SizedBox(height: 30.h),
               Text(
-                "Verification",
+                "Business Hours",
                 style: Styles.font32black700w,
               ),
               SizedBox(height: 30.h),
@@ -35,20 +44,31 @@ class VerificationView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.h),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      "Attach proof of registration",
-                      style: Styles.font14black400w,
-                    ),
+              SizedBox(
+                height: 36.h,
+                child: ListView.builder(
+                  itemCount: calenderDays.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => DayCalender(
+                      color: index == 2 ? AppColors.red : AppColors.grey,
+                      dayText: calenderDays[index]),
+                ),
+              ),
+              SizedBox(height: 30.h),
+              SizedBox(
+                height: 300,
+                child: GridView.builder(
+                  itemCount: 5,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 5 / 2,
+                    mainAxisSpacing: 10.h,
+                    crossAxisSpacing: 10.w,
                   ),
-                  CircleAvatar(
-                    backgroundColor: AppColors.red,
-                    radius: 28,
-                    child: SvgPicture.asset(Assets.icons.camera),
-                  )
-                ],
+                  itemBuilder: (context, index) => TimePeriod(
+                    timeText: timePeriods[index],
+                  ),
+                ),
               ),
               const Spacer(),
               Row(
@@ -66,9 +86,7 @@ class VerificationView extends StatelessWidget {
                     child: AppButton(
                       text: "Continue",
                       color: AppColors.red,
-                      onPressed: () {
-                        context.push(const BusinessHoursView());
-                      },
+                      onPressed: () {},
                     ),
                   ),
                 ],
