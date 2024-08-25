@@ -1,5 +1,5 @@
 
-import 'package:farmereats/features/auth/signup/presentation/view/signup_view.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/onboarding/view/onboarding_view.dart';
