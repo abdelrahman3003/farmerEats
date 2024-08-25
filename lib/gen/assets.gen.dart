@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/business.svg
   String get business => 'assets/icons/business.svg';
 
+  /// File path: assets/icons/camera.svg
+  String get camera => 'assets/icons/camera.svg';
+
   /// File path: assets/icons/city.svg
   String get city => 'assets/icons/city.svg';
 
@@ -40,8 +43,18 @@ class $AssetsIconsGen {
   String get phone => 'assets/icons/phone.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [a, back, business, city, home, informal, password, person, phone];
+  List<String> get values => [
+        a,
+        back,
+        business,
+        camera,
+        city,
+        home,
+        informal,
+        password,
+        person,
+        phone
+      ];
 }
 
 class $AssetsImagesGen {
