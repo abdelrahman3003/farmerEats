@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SignupView extends StatelessWidget {
-  const SignupView({super.key});
+class SigninView extends StatelessWidget {
+  const SigninView({super.key});
 
   @override
   Widget build(BuildContext context) {

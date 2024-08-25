@@ -18,8 +18,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/password.svg
   String get password => 'assets/icons/password.svg';
 
+  /// File path: assets/icons/person.svg
+  String get person => 'assets/icons/person.svg';
+
+  /// File path: assets/icons/phone.svg
+  String get phone => 'assets/icons/phone.svg';
+
   /// List of all assets
-  List<String> get values => [a, password];
+  List<String> get values => [a, password, person, phone];
 }
 
 class $AssetsImagesGen {
