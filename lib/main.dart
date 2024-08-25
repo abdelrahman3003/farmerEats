@@ -11,6 +11,5 @@ void main() async {
   await AppService.initializeSharedPreferences();
   await setupGetit();
   await ScreenUtil.ensureScreenSize();
-
   runApp(const Farmereates());
 }
