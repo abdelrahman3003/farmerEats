@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/colors.dart';
-import '../../../gen/assets.gen.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../gen/assets.gen.dart';
 import 'onboarding.dart';
 
 class OnboardingThird extends StatelessWidget {

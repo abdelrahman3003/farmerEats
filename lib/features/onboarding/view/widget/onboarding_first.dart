@@ -1,7 +1,7 @@
 import 'package:farmereats/core/class/navigator.dart';
 import 'package:farmereats/core/theme/colors.dart';
-import 'package:farmereats/features/onboarding/widget/onboarding.dart';
-import 'package:farmereats/features/onboarding/widget/onboarding_second.dart';
+import 'package:farmereats/features/onboarding/view/widget/onboarding.dart';
+import 'package:farmereats/features/onboarding/view/widget/onboarding_second.dart';
 import 'package:farmereats/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
