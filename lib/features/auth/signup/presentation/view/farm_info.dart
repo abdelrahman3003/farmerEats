@@ -1,5 +1,4 @@
 import 'package:farmereats/core/class/navigator.dart';
-import 'package:farmereats/features/auth/signup/presentation/view/farm_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,8 +9,8 @@ import '../../../../../core/theme/widget/app_button.dart';
 import '../../../../../core/theme/widget/app_textformfield.dart';
 import '../../../../../gen/assets.gen.dart';
 
-class SignupView extends StatelessWidget {
-  const SignupView({super.key});
+class FarmInfo extends StatelessWidget {
+  const FarmInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,33 +23,28 @@ class SignupView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 50.h),
+                SizedBox(height: 100.h),
                 Text(
-                  "Signup ",
-                  style: Styles.font18blackew700,
-                ),
-                SizedBox(height: 20.h),
-                Text(
-                  "Welcome!",
+                  "Farm Info",
                   style: Styles.font32black700w,
                 ),
                 SizedBox(height: 75.h),
                 AppTextformfield(
-                  hint: "Full Name",
+                  hint: "Business Name",
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: SvgPicture.asset(
-                      Assets.icons.person,
+                      Assets.icons.business,
                     ),
                   ),
                 ),
                 SizedBox(height: 24.h),
                 AppTextformfield(
-                  hint: "Email Address",
+                  hint: "Informal Name",
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: SvgPicture.asset(
-                      Assets.icons.a,
+                      Assets.icons.informal,
                     ),
                   ),
                 ),
@@ -58,43 +52,51 @@ class SignupView extends StatelessWidget {
                 AppTextformfield(
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: SvgPicture.asset(Assets.icons.phone),
+                    child: SvgPicture.asset(Assets.icons.home),
                   ),
-                  hint: "Phone Number",
+                  hint: "Street Address",
                 ),
                 SizedBox(height: 24.h),
                 AppTextformfield(
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: SvgPicture.asset(Assets.icons.password),
+                    child: SvgPicture.asset(Assets.icons.city),
                   ),
-                  hint: "Password",
+                  hint: "City",
                 ),
                 SizedBox(height: 24.h),
-                AppTextformfield(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: SvgPicture.asset(Assets.icons.password),
-                  ),
-                  hint: "Re-enter Password",
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 100.w,
+                      child: const AppTextformfield(
+                        hint: "State",
+                      ),
+                    ),
+                    SizedBox(width: 30.h),
+                    const Expanded(
+                      child: AppTextformfield(
+                        hint: "Enter Zipcode",
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 100.h),
                 Row(
                   children: [
-                    Text(
-                      "Login",
-                      style: Styles.font14black400w.copyWith(
-                        decoration: TextDecoration.underline,
-                      ),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: GestureDetector(
+                          onTap: () {
+                            context.pop();
+                          },
+                          child: SvgPicture.asset(Assets.icons.back)),
                     ),
                     SizedBox(width: 32.w),
-                    Expanded(
+                    const Expanded(
                       child: AppButton(
                         text: "Continue",
                         color: AppColors.red,
-                        onPressed: () {
-                          context.push(const FarmInfo());
-                        },
                       ),
                     ),
                   ],
