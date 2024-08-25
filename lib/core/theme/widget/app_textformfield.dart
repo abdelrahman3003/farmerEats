@@ -29,15 +29,15 @@ final TextInputType? keyboardType;
       keyboardType:keyboardType ,
       decoration: InputDecoration(
           hintText: hint,
-          hintStyle: Styles.font14greye400w,
+          hintStyle: Styles.font14black400w,
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.w, vertical: 17.h),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
-              borderSide: const BorderSide(color: AppColors.grey2)),
+              borderSide: const BorderSide(color: AppColors.black)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
-              borderSide: const BorderSide(color: AppColors.primary)),
+              borderSide: const BorderSide(color: AppColors.black)),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: const BorderSide(color: AppColors.red)),
@@ -45,7 +45,7 @@ final TextInputType? keyboardType;
               borderRadius: BorderRadius.circular(16),
               borderSide: const BorderSide(color: AppColors.red)),
           filled: true,
-          fillColor: AppColors.grey3,
+          fillColor: AppColors.black,
           suffixIcon: isPassword
               ? IconButton(
                   onPressed: onPressedEye,
@@ -53,7 +53,7 @@ final TextInputType? keyboardType;
                     isShowPassword
                         ? Icons.visibility_off
                         : Icons.visibility_rounded,
-                    color: AppColors.primary,
+                    color: AppColors.black,
                   ))
               : null),
     );

@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../../features/view/onboarding/onboarding_view.dart';
+import '../../features/onboarding/onboarding_view.dart';
+
 class Routes {
   static const String konboardingView = '/onboardingView';
   static const String ksinginView = '/singinView';
