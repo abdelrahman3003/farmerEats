@@ -9,20 +9,41 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/@.svg
+  String get a => 'assets/icons/@.svg';
+
+  /// File path: assets/icons/password.svg
+  String get password => 'assets/icons/password.svg';
+
+  /// List of all assets
+  List<String> get values => [a, password];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/Local.png
+  AssetGenImage get local => const AssetGenImage('assets/images/Local.png');
+
+  /// File path: assets/images/convenient.png
+  AssetGenImage get convenient =>
+      const AssetGenImage('assets/images/convenient.png');
 
   /// File path: assets/images/quality_background.png
   AssetGenImage get qualityBackground =>
       const AssetGenImage('assets/images/quality_background.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [qualityBackground];
+  List<AssetGenImage> get values => [local, convenient, qualityBackground];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

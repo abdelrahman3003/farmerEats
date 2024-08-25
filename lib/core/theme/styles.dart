@@ -4,6 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors.dart';
 
 class Styles {
+  static TextStyle font32black700w = TextStyle(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+  );
   static TextStyle font24black700w = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w700,
@@ -14,9 +19,6 @@ class Styles {
     fontWeight: FontWeight.w400,
     color: AppColors.black,
   );
-
-
-
 
   static TextStyle font16whitew600 = TextStyle(
     fontSize: 16.sp,
