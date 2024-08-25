@@ -24,6 +24,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/camera.svg
   String get camera => 'assets/icons/camera.svg';
 
+  /// File path: assets/icons/check.svg
+  String get check => 'assets/icons/check.svg';
+
   /// File path: assets/icons/city.svg
   String get city => 'assets/icons/city.svg';
 
@@ -48,6 +51,7 @@ class $AssetsIconsGen {
         back,
         business,
         camera,
+        check,
         city,
         home,
         informal,

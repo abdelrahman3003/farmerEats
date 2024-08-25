@@ -1,4 +1,5 @@
 import 'package:farmereats/core/class/navigator.dart';
+import 'package:farmereats/features/auth/signup/presentation/view/signup_done.dart';
 import 'package:farmereats/features/auth/signup/presentation/view/widget/day_calender.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,7 +87,9 @@ class BusinessHoursView extends StatelessWidget {
                     child: AppButton(
                       text: "Continue",
                       color: AppColors.red,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push(const SignupDone());
+                      },
                     ),
                   ),
                 ],
