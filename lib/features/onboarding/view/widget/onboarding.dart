@@ -1,6 +1,4 @@
-import 'package:farmereats/core/class/navigator.dart';
 import 'package:farmereats/core/constants/routes.dart';
-import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

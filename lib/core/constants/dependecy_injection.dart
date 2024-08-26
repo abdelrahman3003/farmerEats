@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:farmereats/features/auth/signin/data/api/forget_password_api.dart';
 import 'package:farmereats/features/auth/signin/data/api/signin_api.dart';
+import 'package:farmereats/features/auth/signin/data/repos/forget_password_repo.dart';
 import 'package:farmereats/features/auth/signin/data/repos/signin_repo.dart';
-import 'package:farmereats/features/auth/signin/presentation/controller/cubit/signin_cubit.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/forget_password/forgetpassword_cubit.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../network/dio_factory.dart';
@@ -15,7 +18,12 @@ Future<void> setupGetit() async {
   getit.registerLazySingleton<SigninApiService>(() => SigninApiService(dio));
   getit.registerLazySingleton<SigninRepo>(() => SigninRepo(getit()));
   getit.registerFactory<SigninCubit>(() => SigninCubit(getit()));
-// //signUp
+  //forget password
+  getit.registerLazySingleton<ForgetPasswordApi>(() => ForgetPasswordApi(dio));
+  getit.registerLazySingleton<ForgetPasswordRepo>(() => ForgetPasswordRepo(getit()));
+  getit.registerFactory<ForgetpasswordCubit>(() => ForgetpasswordCubit(getit()));
+
+ //signUp
 //   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
 //   getit.registerLazySingleton<SignupCubit>(() => SignupCubit(getit()));
 
