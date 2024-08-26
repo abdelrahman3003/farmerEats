@@ -1,4 +1,5 @@
 import 'package:farmereats/core/class/navigator.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/reset_password_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -70,9 +71,12 @@ class VerifyOtpView extends StatelessWidget {
               }, // end onSubmit
             ),
             SizedBox(height: 30.h),
-            const AppButton(
+            AppButton(
               text: "Submit",
               color: AppColors.red,
+              onPressed: () {
+                context.push(const ResetPasswordView());
+              },
             ),
             SizedBox(height: 10.h),
             Align(
