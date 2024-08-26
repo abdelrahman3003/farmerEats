@@ -10,8 +10,8 @@ import '../../../../../core/theme/widget/app_button.dart';
 import '../../../../../core/theme/widget/app_textformfield.dart';
 import '../../../../../gen/assets.gen.dart';
 
-class FarmInfo extends StatelessWidget {
-  const FarmInfo({super.key});
+class FarmInfoView extends StatelessWidget {
+  const FarmInfoView({super.key});
 
   @override
   Widget build(BuildContext context) {

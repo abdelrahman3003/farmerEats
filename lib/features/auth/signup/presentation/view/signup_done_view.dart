@@ -7,8 +7,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/theme/styles.dart';
 
-class SignupDone extends StatelessWidget {
-  const SignupDone({super.key});
+class SignupDoneView extends StatelessWidget {
+  const SignupDoneView({super.key});
 
   @override
   Widget build(BuildContext context) {
