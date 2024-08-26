@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:farmereats/features/auth/signin/data/models/signin_request_body.dart';
-import 'package:farmereats/features/auth/signin/data/models/signin_response.dart';
+import 'package:farmereats/features/auth/signin/data/models/signin/signin_request_body.dart';
+import 'package:farmereats/features/auth/signin/data/models/signin/signin_response.dart';
 import 'package:farmereats/features/auth/signin/data/repos/signin_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
