@@ -1,7 +1,10 @@
+import 'package:farmereats/core/class/navigator.dart';
 import 'package:farmereats/core/theme/colors.dart';
 import 'package:farmereats/core/theme/styles.dart';
 import 'package:farmereats/core/theme/widget/app_button.dart';
 import 'package:farmereats/core/theme/widget/app_textformfield.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/forget_password_view.dart';
+
 import 'package:farmereats/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,6 +61,22 @@ class SigninView extends StatelessWidget {
                   child: SvgPicture.asset(Assets.icons.password),
                 ),
                 hint: "Password",
+              ),
+              SizedBox(height: 8.h),
+              GestureDetector(
+                onTap: () {
+                  context.push(const ForgetPassword());
+                },
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Forget Password",
+                    style: Styles.font16whitew600.copyWith(
+                      color: AppColors.red,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
               ),
               SizedBox(height: 32.h),
               const AppButton(
