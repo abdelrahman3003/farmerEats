@@ -1,3 +1,6 @@
+import 'package:farmereats/core/class/navigator.dart';
+import 'package:farmereats/core/constants/routes.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -60,7 +63,7 @@ class Onboarding extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 40.h),
-                       Points(length: 3, selectedindex: index),
+                      Points(length: 3, selectedindex: index),
                       SizedBox(height: 60.h),
                       AppButton(
                         text: "Join the movement!",
@@ -68,10 +71,15 @@ class Onboarding extends StatelessWidget {
                         onPressed: onPressed,
                       ),
                       SizedBox(height: 10.h),
-                      Text(
-                        "Login",
-                        style: Styles.font14black400w.copyWith(
-                          decoration: TextDecoration.underline,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(Routes.ksigninView);
+                        },
+                        child: Text(
+                          "Login",
+                          style: Styles.font14black400w.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
                     ],

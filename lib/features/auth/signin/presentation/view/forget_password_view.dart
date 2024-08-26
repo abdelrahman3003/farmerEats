@@ -1,4 +1,5 @@
 import 'package:farmereats/core/class/navigator.dart';
+import 'package:farmereats/core/constants/routes.dart';
 import 'package:farmereats/core/theme/colors.dart';
 import 'package:farmereats/core/theme/widget/app_button.dart';
 import 'package:farmereats/core/theme/widget/app_textformfield.dart';
@@ -39,7 +40,7 @@ class ForgetPassword extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.push(const SignupView());
+                    context.pushNameed(Routes.ksignupView);
                   },
                   child: Text(
                     "Login",
@@ -62,7 +63,9 @@ class ForgetPassword extends StatelessWidget {
               text: "Send Code",
               color: AppColors.red,
               onPressed: () {
-                context.push(const VerifyOtpView());
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => VerifyOtpView(),
+                ));
               },
             )
           ],
