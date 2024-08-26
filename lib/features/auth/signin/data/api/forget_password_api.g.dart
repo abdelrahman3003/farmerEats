@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'signin_api.dart';
+part of 'forget_password_api.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'signin_api.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _SigninApiService implements SigninApiService {
-  _SigninApiService(
+class _ForgetPasswordApi implements ForgetPasswordApi {
+  _ForgetPasswordApi(
     this._dio, {
     this.baseUrl,
 
@@ -24,20 +24,21 @@ class _SigninApiService implements SigninApiService {
 
 
   @override
-  Future<SigninResponse> signin(SigninRequestBody loginRequestBody) async {
+  Future<ForgetPasswordResponse> sendCode(
+      ForgetPasswordRequestBody forgetPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(loginRequestBody.toJson());
-    final _options = _setStreamType<SigninResponse>(Options(
+    _data.addAll(forgetPasswordRequestBody.toJson());
+    final _options = _setStreamType<ForgetPasswordResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'user/login',
+          'user/forgot-password',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -47,9 +48,9 @@ class _SigninApiService implements SigninApiService {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SigninResponse _value;
+    late ForgetPasswordResponse _value;
     try {
-      _value = SigninResponse.fromJson(_result.data!);
+      _value = ForgetPasswordResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
 
       rethrow;

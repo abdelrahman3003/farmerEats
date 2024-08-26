@@ -1,4 +1,4 @@
-import 'package:farmereats/features/auth/signin/data/models/signin_response.dart';
+import 'package:farmereats/features/auth/signin/data/models/signin/signin_response.dart';
 
 import '../../../../../core/network/api_result.dart';
 import '../api/signin_api.dart';
@@ -19,4 +19,6 @@ class SigninRepo {
       return ApiResult.failure(error.toString());
     }
   }
+
+
 }

@@ -4,8 +4,7 @@ import 'package:farmereats/core/theme/colors.dart';
 import 'package:farmereats/core/theme/styles.dart';
 import 'package:farmereats/core/theme/widget/app_button.dart';
 import 'package:farmereats/core/theme/widget/app_textformfield.dart';
-import 'package:farmereats/features/auth/signin/presentation/controller/cubit/signin_cubit.dart';
-import 'package:farmereats/features/auth/signin/presentation/view/forget_password_view.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
 import 'package:farmereats/features/onboarding/view/widget/onboarding_first.dart';
 
 import 'package:farmereats/gen/assets.gen.dart';
@@ -101,7 +100,7 @@ class SigninView extends StatelessWidget {
                   SizedBox(height: 8.h),
                   GestureDetector(
                     onTap: () {
-                      context.push(const ForgetPassword());
+                      context.pushNameed(Routes.kforgetPassword);
                     },
                     child: Align(
                       alignment: Alignment.centerRight,
