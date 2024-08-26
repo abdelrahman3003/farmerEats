@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_service.dart';
+part of 'signin_api.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,11 +8,11 @@ part of 'api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _ApiService implements ApiService {
-  _ApiService(
+class _SigninApiService implements SigninApiService {
+  _SigninApiService(
     this._dio, {
     this.baseUrl,
-    this.errorLogger,
+  
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -21,7 +21,41 @@ class _ApiService implements ApiService {
 
   String? baseUrl;
 
-  final ParseErrorLogger? errorLogger;
+
+
+  @override
+  Future<SigninResponse> signin(SigninRequestBody loginRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(loginRequestBody.toJson());
+    final _options = _setStreamType<SigninResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'user/login',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SigninResponse _value;
+    try {
+      _value = SigninResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+
+      rethrow;
+    }
+    return _value;
+  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&

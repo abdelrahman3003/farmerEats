@@ -1,6 +1,7 @@
 import 'package:farmereats/core/class/navigator.dart';
+import 'package:farmereats/core/constants/routes.dart';
 import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
-import 'package:farmereats/features/auth/signup/presentation/view/farm_info._viewdart';
+import 'package:farmereats/features/auth/signup/presentation/view/farm_info._view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -84,7 +85,7 @@ class SignupView extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context.push(const SigninView());
+                        context.pushReplacementNamed(Routes.konboardingView);
                       },
                       child: Text(
                         "Login",
@@ -99,7 +100,7 @@ class SignupView extends StatelessWidget {
                         text: "Continue",
                         color: AppColors.red,
                         onPressed: () {
-                          context.push(FarmInfoView());
+                          context.pushNameed(Routes.ksigninView);
                         },
                       ),
                     ),

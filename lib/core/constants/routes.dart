@@ -1,6 +1,8 @@
+import 'package:farmereats/core/constants/dependecy_injection.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/cubit/signin_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/signup/presentation/view/signup_view.dart';
 import '../../features/onboarding/view/onboarding_view.dart';
 
@@ -13,11 +15,15 @@ class Routes {
     switch (setting.name) {
       case konboardingView:
         return MaterialPageRoute(builder: (context) => const OnboardingView());
-      case ksignupView:
-        return MaterialPageRoute(builder: (context) => const SigninView());
-      case "/":
-        return MaterialPageRoute(builder: (context) => const SignupView());
 
+      case ksignupView:
+        return MaterialPageRoute(builder: (context) => const SignupView());
+      case ksigninView:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SigninCubit(getit()),
+                  child: const SigninView(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

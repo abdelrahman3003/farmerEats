@@ -19,19 +19,19 @@ mixin _$ApiResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) sucess,
-    required TResult Function(ErrorHandler errorHandler) failure,
+    required TResult Function(String errorMessage) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? sucess,
-    TResult? Function(ErrorHandler errorHandler)? failure,
+    TResult? Function(String errorMessage)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? sucess,
-    TResult Function(ErrorHandler errorHandler)? failure,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,7 +155,7 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) sucess,
-    required TResult Function(ErrorHandler errorHandler) failure,
+    required TResult Function(String errorMessage) failure,
   }) {
     return sucess(data);
   }
@@ -164,7 +164,7 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? sucess,
-    TResult? Function(ErrorHandler errorHandler)? failure,
+    TResult? Function(String errorMessage)? failure,
   }) {
     return sucess?.call(data);
   }
@@ -173,7 +173,7 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? sucess,
-    TResult Function(ErrorHandler errorHandler)? failure,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (sucess != null) {
@@ -232,7 +232,7 @@ abstract class _$$FailureImplCopyWith<T, $Res> {
           _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
       __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({ErrorHandler errorHandler});
+  $Res call({String errorMessage});
 }
 
 /// @nodoc
@@ -248,13 +248,13 @@ class __$$FailureImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? errorHandler = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$FailureImpl<T>(
-      null == errorHandler
-          ? _value.errorHandler
-          : errorHandler // ignore: cast_nullable_to_non_nullable
-              as ErrorHandler,
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -262,14 +262,14 @@ class __$$FailureImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$FailureImpl<T> with DiagnosticableTreeMixin implements Failure<T> {
-  const _$FailureImpl(this.errorHandler);
+  const _$FailureImpl(this.errorMessage);
 
   @override
-  final ErrorHandler errorHandler;
+  final String errorMessage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ApiResult<$T>.failure(errorHandler: $errorHandler)';
+    return 'ApiResult<$T>.failure(errorMessage: $errorMessage)';
   }
 
   @override
@@ -277,7 +277,7 @@ class _$FailureImpl<T> with DiagnosticableTreeMixin implements Failure<T> {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ApiResult<$T>.failure'))
-      ..add(DiagnosticsProperty('errorHandler', errorHandler));
+      ..add(DiagnosticsProperty('errorMessage', errorMessage));
   }
 
   @override
@@ -285,12 +285,12 @@ class _$FailureImpl<T> with DiagnosticableTreeMixin implements Failure<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl<T> &&
-            (identical(other.errorHandler, errorHandler) ||
-                other.errorHandler == errorHandler));
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorHandler);
+  int get hashCode => Object.hash(runtimeType, errorMessage);
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.
@@ -304,29 +304,29 @@ class _$FailureImpl<T> with DiagnosticableTreeMixin implements Failure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) sucess,
-    required TResult Function(ErrorHandler errorHandler) failure,
+    required TResult Function(String errorMessage) failure,
   }) {
-    return failure(errorHandler);
+    return failure(errorMessage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? sucess,
-    TResult? Function(ErrorHandler errorHandler)? failure,
+    TResult? Function(String errorMessage)? failure,
   }) {
-    return failure?.call(errorHandler);
+    return failure?.call(errorMessage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? sucess,
-    TResult Function(ErrorHandler errorHandler)? failure,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(errorHandler);
+      return failure(errorMessage);
     }
     return orElse();
   }
@@ -364,9 +364,9 @@ class _$FailureImpl<T> with DiagnosticableTreeMixin implements Failure<T> {
 }
 
 abstract class Failure<T> implements ApiResult<T> {
-  const factory Failure(final ErrorHandler errorHandler) = _$FailureImpl<T>;
+  const factory Failure(final String errorMessage) = _$FailureImpl<T>;
 
-  ErrorHandler get errorHandler;
+  String get errorMessage;
 
   /// Create a copy of ApiResult
   /// with the given fields replaced by the non-null parameter values.

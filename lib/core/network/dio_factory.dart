@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import 'sharded_pref.dart';
-
 class DioFactory {
   static Dio? dio;
 
@@ -27,9 +25,8 @@ class DioFactory {
 
   static void addDioHEaders({bool isLogedin = true}) {
     dio?.options.headers = {
-      "Accept": "application/json",
-      "Authorization":
-          "Bearer ${AppService.sharedPreferences.getString(ShardedPrefKey.userToken)}"
+      //  "Accept": "application/json",
+      "Content-Type": "application/json",
     };
   }
 }

@@ -15,17 +15,16 @@ class Farmereates extends StatelessWidget {
         splitScreenMode: true,
         builder: (_, child) {
           return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              checkboxTheme: CheckboxThemeData(
-                side: BorderSide(color: AppColors.grey, width: 2.w),             
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                checkboxTheme: CheckboxThemeData(
+                  side: BorderSide(color: AppColors.grey, width: 2.w),
+                ),
+                primaryColor: AppColors.grey,
+                scaffoldBackgroundColor: AppColors.white,
               ),
-              primaryColor: AppColors.grey,
-              scaffoldBackgroundColor: AppColors.white,
-            ),
-            onGenerateRoute: Routes.generateRoute,
-            //   initialRoute: initRout()
-          );
+              onGenerateRoute: Routes.generateRoute,
+              initialRoute: Routes.konboardingView);
         });
   }
   //   String initRout() {
