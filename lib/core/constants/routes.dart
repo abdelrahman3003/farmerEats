@@ -2,8 +2,11 @@ import 'package:farmereats/core/constants/dependecy_injection.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/forget_password/forgetpassword_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/reset_password/reset_password_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/verify_otp/verify_otp_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/view/forget_password_view.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/reset_password_view.dart';
 import 'package:farmereats/features/auth/signin/presentation/view/signin_view.dart';
+import 'package:farmereats/features/auth/signin/presentation/view/verify_otp_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/auth/signup/presentation/view/signup_view.dart';
@@ -15,6 +18,7 @@ class Routes {
   static const String ksigninView = '/signinView';
   static const String kforgetPassword = '/forgetPassword';
   static const String kverifyOtpView = '/verifyOtpView';
+
   static const String kresetPasswordView = '/resetPasswordView';
 
   static Route generateRoute(RouteSettings setting) {
@@ -39,12 +43,6 @@ class Routes {
       case kverifyOtpView:
         return MaterialPageRoute(
             builder: (context) => const ForgetPasswordView());
-      case kresetPasswordView:
-        return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => ResetPasswordCubit(getit()),
-                  child: const ForgetPasswordView(),
-                ));
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
