@@ -12,7 +12,6 @@ class _SigninApiService implements SigninApiService {
   _SigninApiService(
     this._dio, {
     this.baseUrl,
-
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -20,7 +19,6 @@ class _SigninApiService implements SigninApiService {
   final Dio _dio;
 
   String? baseUrl;
-
 
 
   @override
@@ -51,7 +49,6 @@ class _SigninApiService implements SigninApiService {
     try {
       _value = SigninResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-
       rethrow;
     }
     return _value;

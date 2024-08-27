@@ -69,7 +69,7 @@ class ForgetPasswordView extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.pushNameed(Routes.ksignupView);
+                        context.pushNameed(Routes.kverifyOtpView);
                       },
                       child: Text(
                         "Login",

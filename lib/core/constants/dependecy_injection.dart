@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:farmereats/features/auth/signin/data/api/forget_password_api.dart';
 import 'package:farmereats/features/auth/signin/data/api/signin_api.dart';
+import 'package:farmereats/features/auth/signin/data/api/verify_otp_api.dart';
 import 'package:farmereats/features/auth/signin/data/repos/forget_password_repo.dart';
 import 'package:farmereats/features/auth/signin/data/repos/signin_repo.dart';
+import 'package:farmereats/features/auth/signin/data/repos/verify_otp_repo.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/forget_password/forgetpassword_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/verify_otp/verify_otp_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 import '../network/dio_factory.dart';
@@ -22,6 +25,10 @@ Future<void> setupGetit() async {
   getit.registerLazySingleton<ForgetPasswordApi>(() => ForgetPasswordApi(dio));
   getit.registerLazySingleton<ForgetPasswordRepo>(() => ForgetPasswordRepo(getit()));
   getit.registerFactory<ForgetpasswordCubit>(() => ForgetpasswordCubit(getit()));
+  //verify otp
+  getit.registerLazySingleton<VerifyOtpApi>(() => VerifyOtpApi(dio));
+  getit.registerLazySingleton<VerifyOtpRepo>(() => VerifyOtpRepo(getit()));
+  getit.registerFactory<VerifyOtpCubit>(() => VerifyOtpCubit(getit()));
 
  //signUp
 //   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));

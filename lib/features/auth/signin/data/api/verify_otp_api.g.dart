@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'forget_password_api.dart';
+part of 'verify_otp_api.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,10 +8,11 @@ part of 'forget_password_api.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _ForgetPasswordApi implements ForgetPasswordApi {
-  _ForgetPasswordApi(
+class _VerifyOtpApi implements VerifyOtpApi {
+  _VerifyOtpApi(
     this._dio, {
     this.baseUrl,
+
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -22,21 +23,21 @@ class _ForgetPasswordApi implements ForgetPasswordApi {
 
 
   @override
-  Future<ForgetPasswordResponse> sendCode(
-      ForgetPasswordRequestBody forgetPasswordRequestBody) async {
+  Future<VerifyOtpResponse> verify(
+      VerifyOtpRequestBody verifyOtpRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(forgetPasswordRequestBody.toJson());
-    final _options = _setStreamType<ForgetPasswordResponse>(Options(
+    _data.addAll(verifyOtpRequestBody.toJson());
+    final _options = _setStreamType<VerifyOtpResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'user/forgot-password',
+          'user/verify-otp',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -46,9 +47,9 @@ class _ForgetPasswordApi implements ForgetPasswordApi {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ForgetPasswordResponse _value;
+    late VerifyOtpResponse _value;
     try {
-      _value = ForgetPasswordResponse.fromJson(_result.data!);
+      _value = VerifyOtpResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       rethrow;
     }
