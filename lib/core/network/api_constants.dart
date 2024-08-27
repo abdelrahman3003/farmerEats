@@ -3,6 +3,7 @@ class ApiConstants {
   static const String signin = 'user/login';
   static const String fogetPassword = 'user/forgot-password';
   static const String verifyOtp = 'user/verify-otp';
+  static const String resetPassword = 'user/reset-password';
 
 }
 

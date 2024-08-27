@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:farmereats/features/auth/signin/data/api/forget_password_api.dart';
+import 'package:farmereats/features/auth/signin/data/api/reset_password_api.dart';
 import 'package:farmereats/features/auth/signin/data/api/signin_api.dart';
 import 'package:farmereats/features/auth/signin/data/api/verify_otp_api.dart';
 import 'package:farmereats/features/auth/signin/data/repos/forget_password_repo.dart';
+import 'package:farmereats/features/auth/signin/data/repos/reset_password_repo.dart';
 import 'package:farmereats/features/auth/signin/data/repos/signin_repo.dart';
 import 'package:farmereats/features/auth/signin/data/repos/verify_otp_repo.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/forget_password/forgetpassword_cubit.dart';
+import 'package:farmereats/features/auth/signin/presentation/controller/reset_password/reset_password_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/verify_otp/verify_otp_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -23,14 +26,20 @@ Future<void> setupGetit() async {
   getit.registerFactory<SigninCubit>(() => SigninCubit(getit()));
   //forget password
   getit.registerLazySingleton<ForgetPasswordApi>(() => ForgetPasswordApi(dio));
-  getit.registerLazySingleton<ForgetPasswordRepo>(() => ForgetPasswordRepo(getit()));
-  getit.registerFactory<ForgetpasswordCubit>(() => ForgetpasswordCubit(getit()));
+  getit.registerLazySingleton<ForgetPasswordRepo>(
+      () => ForgetPasswordRepo(getit()));
+  getit
+      .registerFactory<ForgetpasswordCubit>(() => ForgetpasswordCubit(getit()));
   //verify otp
   getit.registerLazySingleton<VerifyOtpApi>(() => VerifyOtpApi(dio));
   getit.registerLazySingleton<VerifyOtpRepo>(() => VerifyOtpRepo(getit()));
   getit.registerFactory<VerifyOtpCubit>(() => VerifyOtpCubit(getit()));
-
- //signUp
+  //reset password
+  getit.registerLazySingleton<ResetPasswordApi>(() => ResetPasswordApi(dio));
+  getit.registerLazySingleton<ResetPasswordRepo>(
+      () => ResetPasswordRepo(getit()));
+  getit.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getit()));
+  //signUp
 //   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
 //   getit.registerLazySingleton<SignupCubit>(() => SignupCubit(getit()));
 
