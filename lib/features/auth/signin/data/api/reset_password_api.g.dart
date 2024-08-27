@@ -12,7 +12,6 @@ class _ResetPasswordApi implements ResetPasswordApi {
   _ResetPasswordApi(
     this._dio, {
     this.baseUrl,
-
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -20,7 +19,6 @@ class _ResetPasswordApi implements ResetPasswordApi {
   final Dio _dio;
 
   String? baseUrl;
-
 
 
   @override

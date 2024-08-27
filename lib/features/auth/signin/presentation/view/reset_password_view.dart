@@ -12,7 +12,6 @@ import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/theme/widget/alerdialog.dart';
 import '../../../../../core/theme/widget/app_button.dart';
-import 'signin_view.dart';
 
 class ResetPasswordView extends StatelessWidget {
   const ResetPasswordView({super.key});
@@ -20,6 +19,8 @@ class ResetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<ResetPasswordCubit>(context);
+    final Map<String, String> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
 
     return Scaffold(
       body: Padding(
@@ -68,7 +69,7 @@ class ResetPasswordView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      context.push(const SigninView());
+                      context.pushNameed(Routes.konboardingView);
                     },
                     child: Text(
                       "Login",
@@ -99,7 +100,13 @@ class ResetPasswordView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30.h),
-              const AppButton(text: "Submit", color: AppColors.red),
+              AppButton(
+                onPressed: () {
+                  cubit.emitResetPasswordStates(args['token']!);
+                },
+                text: "Submit",
+                color: AppColors.red,
+              ),
             ],
           ),
         ),

@@ -9,16 +9,20 @@ part 'reset_password_state.dart';
 part 'reset_password_cubit.freezed.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit(this.resetPasswordRepo) : super(ResetPasswordState.initial());
-    final ResetPasswordRepo resetPasswordRepo;
+  ResetPasswordCubit(this.resetPasswordRepo)
+      : super(const ResetPasswordState.initial());
+  final ResetPasswordRepo resetPasswordRepo;
+  Map<String, String>? argument;
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController cPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  void emitForgetPasswordStates() async {
+  void emitResetPasswordStates(String token) async {
     emit(const ResetPasswordState.loading());
-    final response = await resetPasswordRepo
-        .submit(ResetPasswordRequestBody(token: "token", password: passwordController.text, cpassword: cPasswordController.text));
+    final response = await resetPasswordRepo.submit(ResetPasswordRequestBody(
+        token: token,
+        password: passwordController.text,
+        cpassword: cPasswordController.text));
     response.when(
       sucess: (data) {
         emit(ResetPasswordState.success(data));

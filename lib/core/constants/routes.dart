@@ -18,7 +18,6 @@ class Routes {
   static const String ksigninView = '/signinView';
   static const String kforgetPassword = '/forgetPassword';
   static const String kverifyOtpView = '/verifyOtpView';
-
   static const String kresetPasswordView = '/resetPasswordView';
 
   static Route generateRoute(RouteSettings setting) {
@@ -42,7 +41,16 @@ class Routes {
                 ));
       case kverifyOtpView:
         return MaterialPageRoute(
-            builder: (context) => const ForgetPasswordView());
+            builder: (context) => BlocProvider(
+                  create: (context) => VerifyOtpCubit(getit()),
+                  child: const VerifyOtpView(),
+                ));
+      case kresetPasswordView:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => ResetPasswordCubit(getit()),
+                  child: const ResetPasswordView(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

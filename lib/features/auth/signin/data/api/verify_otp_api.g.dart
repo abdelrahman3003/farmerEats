@@ -12,7 +12,7 @@ class _VerifyOtpApi implements VerifyOtpApi {
   _VerifyOtpApi(
     this._dio, {
     this.baseUrl,
-
+    this.errorLogger,
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -21,6 +21,7 @@ class _VerifyOtpApi implements VerifyOtpApi {
 
   String? baseUrl;
 
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<VerifyOtpResponse> verify(
@@ -51,6 +52,7 @@ class _VerifyOtpApi implements VerifyOtpApi {
     try {
       _value = VerifyOtpResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;

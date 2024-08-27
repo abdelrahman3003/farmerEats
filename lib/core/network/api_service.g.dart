@@ -12,6 +12,7 @@ class _ApiService implements ApiService {
   _ApiService(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -20,6 +21,7 @@ class _ApiService implements ApiService {
 
   String? baseUrl;
 
+  final ParseErrorLogger? errorLogger;
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
