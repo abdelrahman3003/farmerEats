@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'forget_password_api.dart';
+part of 'reset_password_api.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,10 +8,11 @@ part of 'forget_password_api.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _ForgetPasswordApi implements ForgetPasswordApi {
-  _ForgetPasswordApi(
+class _ResetPasswordApi implements ResetPasswordApi {
+  _ResetPasswordApi(
     this._dio, {
     this.baseUrl,
+
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -21,22 +22,23 @@ class _ForgetPasswordApi implements ForgetPasswordApi {
   String? baseUrl;
 
 
+
   @override
-  Future<ForgetPasswordResponse> sendCode(
-      ForgetPasswordRequestBody forgetPasswordRequestBody) async {
+  Future<ResetPasswordResponse> submit(
+      ResetPasswordRequestBody resetPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(forgetPasswordRequestBody.toJson());
-    final _options = _setStreamType<ForgetPasswordResponse>(Options(
+    _data.addAll(resetPasswordRequestBody.toJson());
+    final _options = _setStreamType<ResetPasswordResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'user/forgot-password',
+          'user/reset-password',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -46,9 +48,9 @@ class _ForgetPasswordApi implements ForgetPasswordApi {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ForgetPasswordResponse _value;
+    late ResetPasswordResponse _value;
     try {
-      _value = ForgetPasswordResponse.fromJson(_result.data!);
+      _value = ResetPasswordResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       rethrow;
     }

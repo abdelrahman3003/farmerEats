@@ -22,7 +22,6 @@ class _SigninApiService implements SigninApiService {
   String? baseUrl;
 
 
-
   @override
   Future<SigninResponse> signin(SigninRequestBody loginRequestBody) async {
     final _extra = <String, dynamic>{};
@@ -51,7 +50,6 @@ class _SigninApiService implements SigninApiService {
     try {
       _value = SigninResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-
       rethrow;
     }
     return _value;
