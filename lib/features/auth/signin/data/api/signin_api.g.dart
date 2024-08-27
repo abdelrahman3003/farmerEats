@@ -12,7 +12,6 @@ class _SigninApiService implements SigninApiService {
   _SigninApiService(
     this._dio, {
     this.baseUrl,
-    this.errorLogger,
   }) {
     baseUrl ??= 'https://sowlab.com/assignment/';
   }
@@ -21,7 +20,6 @@ class _SigninApiService implements SigninApiService {
 
   String? baseUrl;
 
-  final ParseErrorLogger? errorLogger;
 
   @override
   Future<SigninResponse> signin(SigninRequestBody loginRequestBody) async {
@@ -51,7 +49,6 @@ class _SigninApiService implements SigninApiService {
     try {
       _value = SigninResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
