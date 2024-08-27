@@ -13,11 +13,11 @@ class VerifyOtpCubit extends Cubit<VerifyOtpState> {
 
   void emitVerifyOtpStates(String code) async {
     emit(const VerifyOtpState.loading());
-    final response = await verifyOtpRepo
-        .verify(VerifyOtpRequestBody(otp: code));
+    final response =
+        await verifyOtpRepo.verify(VerifyOtpRequestBody(otp: code));
     response.when(
       sucess: (data) {
-        emit(VerifyOtpState.success(data));
+        emit(VerifyOtpState.success(data, code));
       },
       failure: (errorMessage) {
         emit(VerifyOtpState.error(errorMessage));

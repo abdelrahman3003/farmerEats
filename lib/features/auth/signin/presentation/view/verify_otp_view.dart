@@ -12,8 +12,6 @@ import '../../../../../core/theme/styles.dart';
 import '../../../../../core/theme/widget/alerdialog.dart';
 import '../../../../../core/theme/widget/app_button.dart';
 
-import '../../../signup/presentation/view/signup_view.dart';
-
 class VerifyOtpView extends StatelessWidget {
   const VerifyOtpView({super.key});
 
@@ -35,8 +33,9 @@ class VerifyOtpView extends StatelessWidget {
                     ),
                   );
                 },
-                success: (signinresponse) =>
-                    context.pushNameed(Routes.kresetPasswordView),
+                success: (verifyOtpResponse, token) => context.pushNameed(
+                    Routes.kresetPasswordView,
+                    arguments: {'token': token}),
                 error: (errorMessage) {
                   context.pop();
                   showDialog(
@@ -68,7 +67,8 @@ class VerifyOtpView extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      context.pushNameed(Routes.kresetPasswordView);
+                      context
+                          .pushNameed(Routes.kresetPasswordView, arguments: {});
                     },
                     child: Text(
                       "Login",

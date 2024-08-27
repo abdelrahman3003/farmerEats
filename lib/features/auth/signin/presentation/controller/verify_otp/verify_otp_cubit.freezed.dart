@@ -20,7 +20,8 @@ mixin _$VerifyOtpState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(VerifyOtpResponse verifyOtpResponse) success,
+    required TResult Function(VerifyOtpResponse verifyOtpResponse, String token)
+        success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$VerifyOtpState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult? Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult? Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,8 @@ mixin _$VerifyOtpState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -132,7 +135,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(VerifyOtpResponse verifyOtpResponse) success,
+    required TResult Function(VerifyOtpResponse verifyOtpResponse, String token)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
     return initial();
@@ -143,7 +147,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult? Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult? Function(String errorMessage)? error,
   }) {
     return initial?.call();
@@ -154,7 +159,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -249,7 +255,8 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(VerifyOtpResponse verifyOtpResponse) success,
+    required TResult Function(VerifyOtpResponse verifyOtpResponse, String token)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -260,7 +267,8 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult? Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult? Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -271,7 +279,8 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -329,7 +338,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({VerifyOtpResponse verifyOtpResponse});
+  $Res call({VerifyOtpResponse verifyOtpResponse, String token});
 }
 
 /// @nodoc
@@ -346,12 +355,17 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? verifyOtpResponse = null,
+    Object? token = null,
   }) {
     return _then(_$SuccessImpl(
       null == verifyOtpResponse
           ? _value.verifyOtpResponse
           : verifyOtpResponse // ignore: cast_nullable_to_non_nullable
               as VerifyOtpResponse,
+      null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -359,14 +373,16 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.verifyOtpResponse);
+  const _$SuccessImpl(this.verifyOtpResponse, this.token);
 
   @override
   final VerifyOtpResponse verifyOtpResponse;
+  @override
+  final String token;
 
   @override
   String toString() {
-    return 'VerifyOtpState.success(verifyOtpResponse: $verifyOtpResponse)';
+    return 'VerifyOtpState.success(verifyOtpResponse: $verifyOtpResponse, token: $token)';
   }
 
   @override
@@ -375,11 +391,12 @@ class _$SuccessImpl implements Success {
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
             (identical(other.verifyOtpResponse, verifyOtpResponse) ||
-                other.verifyOtpResponse == verifyOtpResponse));
+                other.verifyOtpResponse == verifyOtpResponse) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, verifyOtpResponse);
+  int get hashCode => Object.hash(runtimeType, verifyOtpResponse, token);
 
   /// Create a copy of VerifyOtpState
   /// with the given fields replaced by the non-null parameter values.
@@ -394,10 +411,11 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(VerifyOtpResponse verifyOtpResponse) success,
+    required TResult Function(VerifyOtpResponse verifyOtpResponse, String token)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success(verifyOtpResponse);
+    return success(verifyOtpResponse, token);
   }
 
   @override
@@ -405,10 +423,11 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult? Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult? Function(String errorMessage)? error,
   }) {
-    return success?.call(verifyOtpResponse);
+    return success?.call(verifyOtpResponse, token);
   }
 
   @override
@@ -416,12 +435,13 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(verifyOtpResponse);
+      return success(verifyOtpResponse, token);
     }
     return orElse();
   }
@@ -465,10 +485,12 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements VerifyOtpState {
-  const factory Success(final VerifyOtpResponse verifyOtpResponse) =
+  const factory Success(
+          final VerifyOtpResponse verifyOtpResponse, final String token) =
       _$SuccessImpl;
 
   VerifyOtpResponse get verifyOtpResponse;
+  String get token;
 
   /// Create a copy of VerifyOtpState
   /// with the given fields replaced by the non-null parameter values.
@@ -548,7 +570,8 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(VerifyOtpResponse verifyOtpResponse) success,
+    required TResult Function(VerifyOtpResponse verifyOtpResponse, String token)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -559,7 +582,8 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult? Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult? Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -570,7 +594,8 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(VerifyOtpResponse verifyOtpResponse)? success,
+    TResult Function(VerifyOtpResponse verifyOtpResponse, String token)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
