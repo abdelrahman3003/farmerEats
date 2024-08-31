@@ -1,5 +1,6 @@
 import 'package:farmereats/core/class/navigator.dart';
 import 'package:farmereats/core/constants/routes.dart';
+import 'package:farmereats/features/auth/signup/presentation/view/farm_info._view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -98,7 +99,7 @@ class SignupView extends StatelessWidget {
                         text: "Continue",
                         color: AppColors.red,
                         onPressed: () {
-                          context.pushNameed(Routes.ksigninView);
+                          context.push(const FarmInfoView());
                         },
                       ),
                     ),

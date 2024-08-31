@@ -9,12 +9,18 @@ import 'package:farmereats/features/auth/signin/presentation/view/signin_view.da
 import 'package:farmereats/features/auth/signin/presentation/view/verify_otp_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/auth/signup/presentation/view/business_hours_view.dart';
+import '../../features/auth/signup/presentation/view/farm_info._view.dart';
 import '../../features/auth/signup/presentation/view/signup_view.dart';
+import '../../features/auth/signup/presentation/view/verification_view.dart';
 import '../../features/onboarding/view/onboarding_view.dart';
 
 class Routes {
   static const String konboardingView = '/onboardingView';
   static const String ksignupView = '/signupView';
+  static const String kfarmInfoView = '/farmInfoView';
+  static const String kverificationView = '/verificationView';
+  static const String kbusinessHoursView = '/businessHoursView';
   static const String ksigninView = '/signinView';
   static const String kforgetPassword = '/forgetPassword';
   static const String kverifyOtpView = '/verifyOtpView';
@@ -26,7 +32,29 @@ class Routes {
         return MaterialPageRoute(builder: (context) => const OnboardingView());
 
       case ksignupView:
-        return MaterialPageRoute(builder: (context) => const SignupView());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SigninCubit(getit()),
+                  child: const SignupView(),
+                ));
+      case kfarmInfoView:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SigninCubit(getit()),
+                  child: const FarmInfoView(),
+                ));
+      case kverificationView:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SigninCubit(getit()),
+                  child: const VerificationView(),
+                ));
+      case kbusinessHoursView:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => SigninCubit(getit()),
+                  child: const BusinessHoursView(),
+                ));
       case ksigninView:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(

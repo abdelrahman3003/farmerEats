@@ -11,39 +11,45 @@ import 'package:farmereats/features/auth/signin/presentation/controller/forget_p
 import 'package:farmereats/features/auth/signin/presentation/controller/reset_password/reset_password_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/signin/signin_cubit.dart';
 import 'package:farmereats/features/auth/signin/presentation/controller/verify_otp/verify_otp_cubit.dart';
+import 'package:farmereats/features/auth/signup/data/api/signup-api.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../features/auth/signup/data/repos/signup_repo.dart';
+import '../../features/auth/signup/presentation/controller/signup/signup_cubit.dart';
 import '../network/dio_factory.dart';
 
 final getit = GetIt.instance;
 Future<void> setupGetit() async {
   Dio dio = DioFactory.getDio();
-//  getit.registerLazySingleton<ApiService>(() => ApiService(dio));
+
 
   //login
   getit.registerLazySingleton<SigninApiService>(() => SigninApiService(dio));
   getit.registerLazySingleton<SigninRepo>(() => SigninRepo(getit()));
   getit.registerFactory<SigninCubit>(() => SigninCubit(getit()));
+
   //forget password
   getit.registerLazySingleton<ForgetPasswordApi>(() => ForgetPasswordApi(dio));
   getit.registerLazySingleton<ForgetPasswordRepo>(
       () => ForgetPasswordRepo(getit()));
   getit
       .registerFactory<ForgetpasswordCubit>(() => ForgetpasswordCubit(getit()));
+
   //verify otp
   getit.registerLazySingleton<VerifyOtpApi>(() => VerifyOtpApi(dio));
   getit.registerLazySingleton<VerifyOtpRepo>(() => VerifyOtpRepo(getit()));
   getit.registerFactory<VerifyOtpCubit>(() => VerifyOtpCubit(getit()));
+
   //reset password
   getit.registerLazySingleton<ResetPasswordApi>(() => ResetPasswordApi(dio));
   getit.registerLazySingleton<ResetPasswordRepo>(
       () => ResetPasswordRepo(getit()));
   getit.registerFactory<ResetPasswordCubit>(() => ResetPasswordCubit(getit()));
-  //signUp
-//   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
-//   getit.registerLazySingleton<SignupCubit>(() => SignupCubit(getit()));
 
-// //home
-//   getit.registerLazySingleton<HomeRepo>(() => HomeRepo(getit()));
-//   getit.registerLazySingleton<HomeCubit>(() => HomeCubit(getit()));
+  //signUp
+  getit.registerLazySingleton<SignupApi>(() => SignupApi(dio));
+  getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
+  getit.registerLazySingleton<SignupCubit>(() => SignupCubit(getit()));
+
+
 }

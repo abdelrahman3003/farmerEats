@@ -68,11 +68,16 @@ class SigninView extends StatelessWidget {
                         style: Styles.font14black400w,
                       ),
                       SizedBox(width: 10.w),
-                      Text(
-                        "Create account",
-                        style: Styles.font16whitew600.copyWith(
-                          color: AppColors.red,
-                          fontWeight: FontWeight.w400,
+                      GestureDetector(
+                        onTap: () {
+                          context.pushNameed(Routes.ksignupView);
+                        },
+                        child: Text(
+                          "Create account",
+                          style: Styles.font16whitew600.copyWith(
+                            color: AppColors.red,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ],
